@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   template: `
@@ -15,5 +15,4 @@ export class Error404Component{
   constructor() {
 
   }
-
 }

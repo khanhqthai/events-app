@@ -24,7 +24,11 @@
         <div class="navbar-header navbar-right">
           <ul class="nav navbar-nav">
             <li>
-              <a [routerLink]="['/user/profile']">Welcome Khanh</a>
+              <a *ngIf="!authService.isAuthenicated(); else elseBlock" [routerLink]="['/user/login']">Login</a>
+              <ng-template #elseBlock>
+                <a [routerLink]="['/user/profile']">Welcome {{authService.currentUser.userName}}</a>
+              </ng-template>
+              
             </li>
           </ul>
         </div>

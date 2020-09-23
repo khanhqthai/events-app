@@ -21,10 +21,11 @@ import { Error404Component } from './errors/404.component';
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service'; // simple third-party notification library
 import { EventListResolverService } from './events/event-list-resolver.service';
-
+import { AuthService } from './user/auth.services';
 
 //config
 import { appRoutes } from './routes'
+
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { appRoutes } from './routes'
   ],
 
   providers: [
+    AuthService,
     EventService,
     ToastrService, 
     EventRouteActivatorComponent,
