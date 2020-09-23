@@ -6,12 +6,14 @@ import { RouterModule} from '@angular/router'
 
 //Components
 import { EventsAppComponent } from './events-app.component';
-import { EventRouteActivatorComponent } from './events/event-details/event-route-activator.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail-component';
+import { 
+  EventRouteActivatorComponent,
+  EventsListComponent,
+  EventThumbnailComponent,
+  EventDetailsComponent,
+  CreateEventComponent
+} from './events/index'
 import { NavbarComponent } from './nav/navbar-component';
-import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 
 
