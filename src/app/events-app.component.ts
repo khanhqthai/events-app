@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'events-app-root',
+  selector: 'app-root',
   template: `
     <nav-bar></nav-bar>
-    <events-list></events-list>
+    <router-outlet></router-outlet>
     `,
 
 })
