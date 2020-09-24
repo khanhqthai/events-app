@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule} from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Components
 import { EventsAppComponent } from './events-app.component';
@@ -11,7 +12,8 @@ import {
   EventsListComponent,
   EventThumbnailComponent,
   EventDetailsComponent,
-  CreateEventComponent
+  CreateEventComponent,
+  CreateSessionComponent,
 } from './events/index'
 import { NavbarComponent } from './nav/navbar-component';
 import { Error404Component } from './errors/404.component';
@@ -29,9 +31,11 @@ import { appRoutes } from './routes'
 
 @NgModule({
   imports: [
-    BrowserModule, // Exports required infrastructure for all Angular apps
+    BrowserModule, 
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes), // Adds directives and providers for in-app navigation among views defined in an application
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
 
   declarations: [
@@ -41,6 +45,7 @@ import { appRoutes } from './routes'
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    CreateSessionComponent,
     Error404Component,
     
   ],

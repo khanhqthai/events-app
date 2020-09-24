@@ -13,7 +13,12 @@ export class AuthService {
     };
   }
 
-  isAuthenicated(){
-      return !!this.currentUser;
+  updateCurrentUser(user: IUser) {
+    this.currentUser.firstName = user.firstName;
+    this.currentUser.lastName = user.lastName;
+  }
+
+  isAuthenicated() {
+    return !!this.currentUser;
   }
 }

@@ -1,5 +1,4 @@
-import { ISession } from './ISession';
-
+import { ISession } from './session.model';
 export interface IEvent {
   id: number;
   name: string;
