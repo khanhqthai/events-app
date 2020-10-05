@@ -14,10 +14,13 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   CreateSessionComponent,
+  SessionListComponent,
+  
 } from './events/index'
 import { NavbarComponent } from './nav/navbar-component';
 import { Error404Component } from './errors/404.component';
 
+import { CollaspsibleWellComponent } from './common/collaspsible-well.component';
 
 //services
 import { EventService } from './events/shared/event.service';
@@ -46,6 +49,8 @@ import { appRoutes } from './routes'
     EventDetailsComponent,
     CreateEventComponent,
     CreateSessionComponent,
+    SessionListComponent,
+    CollaspsibleWellComponent,
     Error404Component,
     
   ],
