@@ -1,4 +1,4 @@
-# Event App developed with ASP.NET Core(C#) and Angular
+# Event App developed with Angular
 An events app similiar to EventBrite
 
 ## Development server
