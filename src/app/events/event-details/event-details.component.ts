@@ -21,6 +21,8 @@ import { IEvent, ISession } from '../shared/index';
 export class EventDetailsComponent implements OnInit {
   addMode: boolean;
   event: IEvent;
+  filterBy: string ='all';
+  sortBy: string ='votes';
   constructor(
     private eventService: EventService,
     private activatedRoute: ActivatedRoute
@@ -45,4 +47,5 @@ export class EventDetailsComponent implements OnInit {
   cancelAddSession(){
     this.addMode = false;
   }
+
 }

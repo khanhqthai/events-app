@@ -15,6 +15,7 @@ import {
   CreateEventComponent,
   CreateSessionComponent,
   SessionListComponent,
+  DurationPipe
   
 } from './events/index'
 import { NavbarComponent } from './nav/navbar-component';
@@ -24,13 +25,14 @@ import { CollaspsibleWellComponent } from './common/collaspsible-well.component'
 
 //services
 import { EventService } from './events/shared/event.service';
-import { ToastrService } from './common/toastr.service'; // simple third-party notification library
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service'; // simple third-party notification library
 import { EventListResolverService } from './events/event-list-resolver.service';
 import { AuthService } from './user/auth.services';
 
 //config
 import { appRoutes } from './routes'
 
+declare let toastr:Toastr
 
 @NgModule({
   imports: [
@@ -51,6 +53,7 @@ import { appRoutes } from './routes'
     CreateSessionComponent,
     SessionListComponent,
     CollaspsibleWellComponent,
+    DurationPipe,
     Error404Component,
     
   ],
@@ -58,7 +61,7 @@ import { appRoutes } from './routes'
   providers: [
     AuthService,
     EventService,
-    ToastrService, 
+    {provide: TOASTR_TOKEN, useValue: toastr}, 
     EventRouteActivatorComponent,
     {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},
     EventListResolverService
@@ -74,6 +77,5 @@ export function checkDirtyState(component: CreateEventComponent){
   if(component.isDirty){
     return window.confirm('You have not save, do you still want to cancel?')
   }
-  return true
-  
+  return true; 
 }
