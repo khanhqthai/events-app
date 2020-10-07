@@ -21,18 +21,26 @@ import {
 import { NavbarComponent } from './nav/navbar-component';
 import { Error404Component } from './errors/404.component';
 
-import { CollaspsibleWellComponent } from './common/collaspsible-well.component';
+//services/components from Common
+import { 
+  CollaspsibleWellComponent,
+  TOASTR_TOKEN,
+  Toastr,
+  JQUERY_TOKEN,
+  SimpleModalComponent,
+  ModalTriggerDirective
+} from './common/index';
 
 //services
 import { EventService } from './events/shared/event.service';
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service'; // simple third-party notification library
 import { EventListResolverService } from './events/event-list-resolver.service';
 import { AuthService } from './user/auth.services';
 
 //config
 import { appRoutes } from './routes'
 
-declare let toastr:Toastr
+let toastr:Toastr = window['toastr'];
+let jquery = window['$'];
 
 @NgModule({
   imports: [
@@ -54,6 +62,8 @@ declare let toastr:Toastr
     SessionListComponent,
     CollaspsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective,
     Error404Component,
     
   ],
@@ -62,6 +72,7 @@ declare let toastr:Toastr
     AuthService,
     EventService,
     {provide: TOASTR_TOKEN, useValue: toastr}, 
+    {provide: JQUERY_TOKEN, useValue: jquery}, 
     EventRouteActivatorComponent,
     {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},
     EventListResolverService

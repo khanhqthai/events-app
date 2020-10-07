@@ -67,6 +67,7 @@ export class ProfileComponent implements OnInit {
       };
       this.authService.updateCurrentUser(user);
       this.toastr.success("Saved");
+    
     }
   }
   cancel(): void {

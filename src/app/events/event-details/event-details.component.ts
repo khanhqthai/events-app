@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from '../shared/index';
 
 @Component({
@@ -25,13 +25,18 @@ export class EventDetailsComponent implements OnInit {
   sortBy: string ='votes';
   constructor(
     private eventService: EventService,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) {}
 
   ngOnInit() {
-    this.event = this.eventService.getEvent(
-      +this.activatedRoute.snapshot.params['id']
-    );
+     this.route.params.forEach(
+       (params:Params) => { 
+         this.event = this.eventService.getEvent(+params['id']);
+         this.addMode = false;
+        }
+       
+     );
   }
 
   addSession(){
